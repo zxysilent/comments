@@ -1,0 +1,15 @@
+{
+  "apps": [{
+    "name": "zblog",
+    "script": "production.js",
+    "cwd": "E:/Root/blog.zxysilent/",
+    "exec_mode": "fork",
+    "max_memory_restart": "1G",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+      
+    }
+  }]
+}
