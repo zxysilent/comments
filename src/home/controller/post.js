@@ -68,7 +68,25 @@ module.exports = class extends Base {
       cate: cateName,
       pathname: where.tag || where.cate
     });
-    return this.displayView('index');
+
+    let template = 'index';
+    if(where.tag) {
+      const tagView = await stats(path.join(this.THEME_VIEW_PATH, 'tag.html'))
+        .then(() => true)
+        .catch(() => false);
+      if(tagView) {
+        template = 'tag';
+      }
+    }
+    if(where.cate) {
+      const cateView = await stats(path.join(this.THEME_VIEW_PATH, 'cate.html'))
+        .then(() => true)
+        .catch(() => false);
+      if(cateView) {
+        template = 'cate';
+      }
+    }
+    return this.displayView(template);
   }
   /**
    * post detail
@@ -77,8 +95,13 @@ module.exports = class extends Base {
   async detailAction() {
     this.ctx.url = decodeURIComponent(this.ctx.url);
     let pathname = this.get('pathname');
-    if(pathname === 'list') { return this.listAction(); }
+    //列表页
+    if(pathname === 'list') {
+      return this.listAction();
+    }
+
     let detail;
+    //在线预览
     if(this.get('preview')) {
       try {
         let previewData = JSON.parse(this.post('previewData'));

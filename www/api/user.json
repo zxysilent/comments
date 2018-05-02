@@ -1,0 +1,20 @@
+{
+  "state": 200,
+  "msg": "个人信息",
+  "data": {
+    "name": "曾祥银",
+    "num": "20130824",
+    "logo":"https://blog.zxysilent.com/logo.png",
+    "age": 1994,
+    "qq": 76387097,
+    "tel": "18200001024",
+    "school": "西华师范大学",
+    "github": "https://github.com/zxysilent",
+    "blog": "https://blog.zxysilent.com",
+    "address":{
+      "prov":"四川",
+      "city":"达州",
+      "detail":"四川省达州市大竹县"
+    }
+  }
+}
